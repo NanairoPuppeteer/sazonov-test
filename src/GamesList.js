@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import { Col, Modal, Pagination, Row, Stack } from "react-bootstrap";
 import "./GamesList.css";
 
-function ImageModal({ thumbUrl, bigUrl, size })
+function ImageModal({ thumbUrl, bigUrl, size, thumbClass="" })
 {
     const [show, setShow] = useState(false);
 
@@ -16,7 +16,7 @@ function ImageModal({ thumbUrl, bigUrl, size })
 
     return (
         <>
-            <img src={thumbUrl} onClick={handleShow}/>
+            <img src={thumbUrl} onClick={handleShow} className={thumbClass} />
             <Modal size={size} show={show} onHide={handleClose}>
                 <Modal.Header closeButton />
                 <Modal.Body>
@@ -79,7 +79,7 @@ function GamesList({ games }) {
                             <h3>{game.title}</h3>
                         </Col>
                         <Col xs={12} lg={2} className="p-2">
-                            <ImageModal  size="sm" thumbUrl={game.coverUrl} bigUrl={game.coverUrlBig} />
+                            <ImageModal  size="sm" thumbUrl={game.coverUrl} bigUrl={game.coverUrlBig} thumbClass="coverImg" />
                         </Col>
                         <Col xs={12} lg={8} xl={4} className="p-2 overflow-auto">
                             <Stack direction="horizontal" gap={3}>

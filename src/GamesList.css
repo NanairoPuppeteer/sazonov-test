@@ -15,7 +15,7 @@
     justify-content: center;
 }
 
-.modalImg {
+.modalImg, .coverImg {
     display: block;
     margin: auto;
 }
