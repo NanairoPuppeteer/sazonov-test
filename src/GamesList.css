@@ -1,0 +1,28 @@
+.game {
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    padding: 1em;
+    margin: 1em;
+    font-size: 0.9rem;
+}
+
+.game .game-col {
+    max-height: 150px;
+}
+
+.pagination {
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .game {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .game {
+        font-size: 0.75rem;
+    }
+}

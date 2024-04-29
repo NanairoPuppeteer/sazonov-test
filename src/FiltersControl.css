@@ -1,0 +1,15 @@
+.accordion-header.filters .accordion-button {
+    background-color: #3e4759!important;
+    color: white!important;
+}
+
+.accordion.filters, .accordion.filters .accordion-item {
+    background-color: #282c34!important;
+    color: white!important;
+}
+
+.form-control.players {
+    max-width: 100px;
+    width: 25%;
+    min-width: 55px;
+}
