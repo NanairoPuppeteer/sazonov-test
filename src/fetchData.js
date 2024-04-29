@@ -30,7 +30,8 @@ async function fetchData() {
         let game = {
             id: item.id,
             title: item.name,
-            coverUrl: "https:" + item.cover.url,
+            coverUrl: `https://images.igdb.com/igdb/image/upload/t_cover_small/${item.cover.image_id}.jpg`,
+            coverUrlBig:`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover.image_id}.jpg`,
             screenshots: [],
             textLanguage: [],
             voiceLanguage: [],
@@ -42,7 +43,12 @@ async function fetchData() {
 
         if (item.screenshots)
         {
-            item.screenshots.map(screen => { game.screenshots.push({id: screen.id, url: "https:" + screen.url}) });
+            item.screenshots.map(screen => { game.screenshots.push({
+                    id: screen.id,
+                    url: `https://images.igdb.com/igdb/image/upload/t_thumb/${screen.image_id}.jpg`,
+                    urlBig: `https://images.igdb.com/igdb/image/upload/t_screenshot_big/${screen.image_id}.jpg`
+                })
+            });
         }
 
         if (item.language_supports)

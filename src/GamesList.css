@@ -15,6 +15,15 @@
     justify-content: center;
 }
 
+.modalImg {
+    display: block;
+    margin: auto;
+}
+
+.modal-content {
+    background-color: #282c34!important;
+}
+
 @media (min-width: 1200px) and (max-width: 1400px) {
     .game {
         font-size: 0.75rem;

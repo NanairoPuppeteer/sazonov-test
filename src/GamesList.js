@@ -1,6 +1,31 @@
 import { Fragment, useState } from "react";
-import { Col, Pagination, Row, Stack } from "react-bootstrap";
+import { Col, Modal, Pagination, Row, Stack } from "react-bootstrap";
 import "./GamesList.css";
+
+function ImageModal({ thumbUrl, bigUrl, size })
+{
+    const [show, setShow] = useState(false);
+
+    function handleShow() {
+        setShow(true);
+    }
+
+    function handleClose() {
+        setShow(false);
+    }
+
+    return (
+        <>
+            <img src={thumbUrl} onClick={handleShow}/>
+            <Modal size={size} show={show} onHide={handleClose}>
+                <Modal.Header closeButton />
+                <Modal.Body>
+                    <img src={bigUrl} className="modalImg"/>
+                </Modal.Body>
+            </Modal>
+        </>
+    );
+}
 
 function GamesList({ games }) {
     const [page, setPage] = useState(0);
@@ -54,13 +79,13 @@ function GamesList({ games }) {
                             <h3>{game.title}</h3>
                         </Col>
                         <Col xs={12} lg={2} className="p-2">
-                            <img src={game.coverUrl} width={90} height={90}/>
+                            <ImageModal  size="sm" thumbUrl={game.coverUrl} bigUrl={game.coverUrlBig} />
                         </Col>
                         <Col xs={12} lg={8} xl={4} className="p-2 overflow-auto">
                             <Stack direction="horizontal" gap={3}>
                                 {game.screenshots.map(screen => {
                                     return (
-                                        <img key={screen.id} src={screen.url} />
+                                        <ImageModal key={screen.id} size="xl" thumbUrl={screen.url} bigUrl={screen.urlBig} />
                                     );
                                 })}
                             </Stack>
